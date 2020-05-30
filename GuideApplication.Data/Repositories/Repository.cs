@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace GuideApplication.Data.Repositories
 {
     //Repository interface'de bulunan metodlara işlemler yaptırıldı
+    //Tüm temel işlemler tanımlandı
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext Context;
@@ -21,6 +22,8 @@ namespace GuideApplication.Data.Repositories
         public async Task AddAsync(TEntity entity)
         {
             await Context.Set<TEntity>().AddAsync(entity);
+         
+
         }
 
         public async Task AddRangeAsync(IEnumerable<TEntity> entities)

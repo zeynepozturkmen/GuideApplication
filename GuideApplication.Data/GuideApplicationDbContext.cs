@@ -9,6 +9,7 @@ namespace GuideApplication.Data
 {
     public class GuideApplicationDbContext : DbContext
     {
+        // DbSets bize ilgili tabloya erişim sağlıyor.
         public DbSet<PersonInformation> Persons { get; set; }
 
         public GuideApplicationDbContext(DbContextOptions<GuideApplicationDbContext> options)

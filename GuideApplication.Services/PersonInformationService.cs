@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GuideApplication.Services
 {
+    //iş mantığımızı API'mız olan sunum katmanımızdan soyutluyoruz.
     public class PersonInformationService : IPersonInformationService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -21,6 +22,8 @@ namespace GuideApplication.Services
         {
             await _unitOfWork.Persons
                 .AddAsync(newPerson);
+
+            await _unitOfWork.CommitAsync();
 
             return newPerson;
         }
@@ -45,16 +48,12 @@ namespace GuideApplication.Services
             return await _unitOfWork.Persons.GetByIdAsync(id);
         }
 
-        public async Task UpdatePerson(PersonInformation person)
+        public async Task UpdatePerson(PersonInformation personToBeUpdated, PersonInformation person)
         {
-            var findPerson = _unitOfWork.Persons.Where(x => x.Id == person.Id).FirstOrDefault();
-
-            findPerson.FullName = person.FullName;
-            findPerson.PhoneNumber = person.PhoneNumber;
-            findPerson.Email = person.Email;
-            findPerson.UpdateDate = person.UpdateDate;
-
-            _unitOfWork.Persons.Update(findPerson);
+            personToBeUpdated.FullName = person.FullName;
+            personToBeUpdated.PhoneNumber = person.PhoneNumber;
+            personToBeUpdated.Email = person.Email;
+            personToBeUpdated.UpdateDate = DateTime.Now;
 
             await _unitOfWork.CommitAsync();
         }

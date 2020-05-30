@@ -9,6 +9,7 @@ namespace GuideApplication.Data.Configuration
 {
     //BaseConfiguration yazılabilir
     //Tablolar arasındaki ilişkiler yazıldı
+    //Modellerimizin (tablolarımızın) kısıtlamalar ve ilişkiler gibi nasıl davrandığı tanımlanıyor.
     public class PersonInformationConfiguration : IEntityTypeConfiguration<PersonInformation>
     {
         public void Configure(EntityTypeBuilder<PersonInformation> builder)

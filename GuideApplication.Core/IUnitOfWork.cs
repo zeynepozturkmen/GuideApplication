@@ -8,7 +8,8 @@ namespace GuideApplication.Core
 {
     public interface IUnitOfWork : IDisposable
     {
-        //Tüm repository'lere tek bir yerden ulaşanilmek için unitOfWork kullanılıyor.
+        //Bir iş birimi, bir işlem sırasında değişikliklerin listesini takip etmek ve işlemden sorumludur.
+        //Tüm repository'lere tek bir yerden ulaşabilmek için unitOfWork kullanılıyor.Oluşturdugumuz diger tabloların repository'lerini de buraya eklemeliyiz.
         IPersonInformationRepository Persons { get; }
         Task<int> CommitAsync();
     }

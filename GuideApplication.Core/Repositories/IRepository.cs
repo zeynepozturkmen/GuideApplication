@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GuideApplication.Core.Repositories
 {
+
+    //Basit bir deyişle, tek bir yerde veritabanı işlemleri (ORM veya veritabanı erişimi diğer yöntemlerle) enkapsüle edilir. Temel olarak veri erişim katmanını soyutlama. 
+
     //RepositoryPattern kullanımında tüm repository'lerde crud işlemlerinin tekrarlanmaması için baseRepository yazıldı
     public interface IRepository<TEntity> where TEntity : class
     {

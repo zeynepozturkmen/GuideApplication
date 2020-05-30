@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace GuideApplication.Data
 {
-    //UnitOfWork interface metodları yazıldı
+    //UnitOfWork interface'in metodları yazıldı
+    //Tüm repository'leri tek bir yerde toplayacak olan İş Birimimiz (UnitOfWork).
     public class UnitOfWork : IUnitOfWork
     {
         private readonly GuideApplicationDbContext _context;
